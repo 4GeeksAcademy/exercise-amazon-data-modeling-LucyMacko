@@ -1,5 +1,5 @@
 import enum
-from sqlalchemy import Column, ForeignKey, Integer, String, Enum, Float
+from sqlalchemy import Column, ForeignKey, Integer, String, Enum, Float, DateTime
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import create_engine
 from eralchemy2 import render_er
@@ -48,7 +48,7 @@ class Bill(Base):
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, ForeignKey('shopping_cart.bill_id'), primary_key=True)
     street_name = Column(String(250))
-    created_at = Column(Integer)
+    created_at = Column(DateTime)
     total_price = Column(Float)
     status=Column(Enum(myEnum))    
 
